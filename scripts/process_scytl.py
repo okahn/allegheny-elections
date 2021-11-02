@@ -5,7 +5,7 @@ from defusedxml import ElementTree
 from pathlib import Path
 import json
 
-DATA_DIR = Path('data')
+DATA_DIR = Path('../data')
 
 def parse_date(xml_data):
     raw = xml_data.findall(".//ElectionDate")[0].text
@@ -47,5 +47,5 @@ def process_scytl_tree(data):
     write_dir(election_path, id_to_name)
 
 if __name__ == '__main__':
-    xs = ElementTree.parse('build/detail.xml')
+    xs = ElementTree.parse('detail.xml')
     process_scytl_tree(xs)
